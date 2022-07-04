@@ -11,10 +11,10 @@
       <%= button_to 'Destroy this event', event_path(@event), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
     <%= link_to 'Back to events', events_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% if current_user.attended_events.empty? %>
-      <%= button_to 'Sign up to this event', event_attendance_records_path(@event.id), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% else %>
+    <% if @event.attendees.include?(current_user) %>
       <%= button_to 'Cancel your attendacne', event_attendance_record_path(@event.id), method: :delete, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% else %>
+      <%= button_to 'Sign up to this event', event_attendance_records_path(@event.id), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <% end %>
   </div>
 </div>
