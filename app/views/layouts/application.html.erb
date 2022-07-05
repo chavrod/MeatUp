@@ -30,7 +30,8 @@
       <div class="flex flex-row-reverse lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
           <% if user_signed_in? %>
-            <%= link_to current_user.name, user_path(current_user.id) %>
+            <%= link_to current_user.name, user_path(current_user.id), class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <%= link_to 'New event', new_event_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
             <%= button_to "Log out", destroy_user_session_path, 
                                 method: :delete, 
                                 data: { turbo: false },
