@@ -17,6 +17,13 @@
   </div>
 
   <div id="events" class="flex flex-col items-center">
-    <%= render @events %>
+    <h1 class="font-bold text-4xl">Upcoming Events</h1>
+      <% @events.upcoming.each do |event| %>
+        <%= render event %>
+      <% end %>
+    <h1 class="font-bold text-4xl">Past Events</h1>
+      <% @events.past.each do |event| %>
+        <%= render event %>
+      <% end %>
   </div>
 </div>
